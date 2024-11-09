@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+</head>
+<body>
+    
+
+
+<h1>DATOS PERSONAS</h1>
+<form id="datosPer">
+
+<label> Nombre: </label><br>
+<input type="text"  id="Nombre" name="Nombre" value="Pedrito"  disabled><br><br>
+
+<label> Ciudad: </label><br>
+<input type="text" id="ciudad" name="ciudad" ><br><br>
+
+<label> Edad: </label><br>
+<input type="number"  id="Edad" name="Edad" ><br><br>
+
+
+<button type="button" onclick="añadirPersonas()">INSERTAR</button>
+
+</form>
+
+<h2> PERSONAS INSERTDAS</h2>
+<div id="datos"> </div>
+
+<script>
+
+
+// Array para los objetos persona
+let datosPersonas = [];
+
+
+function añadirPersonas() {
+    //Recoger datos del formulario
+    const nombre = document.getElementById('Nombre').value;
+    const ciudad = document.getElementById('ciudad').value;
+    const edad = document.getElementById('Edad').value;
+
+
+    //Creamos el objeto para insertrarlo en el ARRAY
+    const nuevaPersona = {
+        nombre: nombre,
+        ciudad: ciudad,
+        edad: edad
+    };
+
+
+   // INSERTAR EL OBJETO PERSONA EN ARRAY PERSONAS
+   datosPersonas.push(nuevaPersona);
+
+
+    //LIMPIAR DATOS DEL FORMULARIO
+
+    document.getElementById('datosPer').reset();
+
+    mostrarPersonas();
+
+    console.log(mostrarPersonas);
+};
+
+function mostrarPersonas(){
+
+const contenedor = document.getElementById('datos');
+contenedor.innerHTML= ""; //Limpiar lo que tenga anteriormente
+
+
+datosPersonas.forEach((dato,index)=>{
+// CREAMOS UN CONTENEDOR DIV PARA ALBERGAR LAS DEMAS ETIQUETAS DONDE INTERPOLAREMOS LOS DATOS
+// INTERPOLAREMOS LOS DATOS QUE EL BUCLE forEach pasa mediante la funcion Arrow
+
+const divmuestra = document.createElement('div');
+    
+    divmuestra.innerHTML = `
+    <h2>Codigo: ${index+1}</h2>
+    <p> Nombre: ${dato.nombre}</p>
+    <p> Ciudad: ${dato.ciudad}</p>
+     <p> Edad: ${dato.edad}</p>
+`;
+contenedor.appendChild(divmuestra);
+});
+
+
+
+};
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

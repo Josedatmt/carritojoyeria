@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT II</title>
+    <style>
+        table,tr,td{
+
+            border: 1px solid black;
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+<body>
+
+<table id="salida"></table><br>
+<p id="sal2"></p>
+<br>
+<button onclick="mostrarEMpleados()">EJECUTAR</button>
+
+<p id="contador"></p>
+<button onclick="increcontador ()"></button>
+
+
+<script>
+
+let persona = {
+
+    nombre:"Pedro Lopez Sanchez",
+    tlf:"4533563",
+    cp:"04317",
+    edad:"30"
+};
+
+let empleados = [
+{nombre: "Luis", puesto:"Administrativo", salario:25000}
+{nombre: "Luis", puesto:"GERENTE", salario:25000}
+{nombre: "Luis", puesto:"VENDEDORA", salario:25000}
+];
+
+
+function añadirContador(){
+let cont = 0;
+return function(){
+    cont++;
+    document.getElementById("contador").innerHTML = "COntador " + cont;
+}
+
+};
+
+let increcontador = añadirContador();
+
+
+
+
+/*
+function mostrarEMpleados(){
+for(let n=0; n< empleados.length; n++){
+
+    document.getElementById('salida').innerHTML += empleados[n].nombre +""+ empleados [n].puesto +""+ empleados[n].salario + "<br>";
+
+}
+};
+
+
+function mostrarEMpleados(){
+
+
+for(let n=0; n< empleados.length; n++){
+
+    document.getElementById('salida').innerHTML += "<tr><td>" + empleados[n].nombre +"</td><td>" + empleados [n].puesto +"</td><td>"+ empleados[n].salario + "</td></tr>";
+
+}
+};
+*/
+
+
+
+
+//document.getElementById('salida').innerHTML +=+ empleados[0].nombre.toUpperCase() +""+ empleados [0].puesto +""+ empleados[0].salario
+
+
+
+
+
+
+//document.getElementById("salida").innerHTML = empleados[0].nombre.toUpperCase;
+//document.getElementById("salida").innerHTML = empleados[0].salario+ empleados[1].salario+  empleados[2].salario;
+
+
+
+
+
+/*
+document.getElementById('salida').innerHTML = persona['nombre']
+document.getElementById('salida').innerHTML = persona.nombre.toUpperCase().split("");
+
+
+
+*/
+
+    function arrays(){
+    let frutas = ["Peras", "Limones","Platanos"];
+
+
+
+    document.getElementById('salida').innerHTML = "Lista" + frutas.join(" - ");
+
+    document.getElementById("sal2").innerHTML = "Elemento del array" + frutas [1] +frutas[0];
+
+    frutas.push("Melon");
+};
+    
+
+    console.log(frutas);
+
+    frutas.reverse();
+    fruta.pop();
+    console.log(frutas);
+
+
+</script>
+    
+
+
+
+
+
+</body>
+</html>
